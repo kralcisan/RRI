@@ -1,0 +1,2 @@
+dt (delta time) je čas v sekundah od od prejšne sličice. dt množimo s hitrostjo, da dobimo premik igralca in zagotovimo hitrost gibanja neodvisno od FPS. 
+Barvo igralca sem spremenil v zeleno in hitrost nastavil na 320 pik na sekundo, zato se igralec premika hitreje.

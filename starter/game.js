@@ -22,8 +22,8 @@
     y: H / 2 - 16,
     w: 32,
     h: 32,
-    speed: 220, // piksli na sekundo (delta-time)
-    color: "#3b82f6", // modra
+    speed: 320, // piksli na sekundo (delta-time)
+    color: "#059669", // zelena
   };
 
   // --- Tipkovnica -----------------------------------------------------------
@@ -71,7 +71,8 @@
       dy /= len;
     }
 
-    player.x += dx * player.speed * dt;
+    
+    player.x += dx * player.speed * dt; // dt (delta time) je čas v sekundah od od prejšne sličice. dt množimo s hitrostjo, da dobimo premik igralca in zagotovimo hitrost gibanja neodvisno od FPS. 
     player.y += dy * player.speed * dt;
 
     // Omejitev na platno (clamp)
