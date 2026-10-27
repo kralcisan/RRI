@@ -1,4 +1,5 @@
 import { world } from "./world.js";
+import { SPRINT_MULTIPLIER } from "./config.js";
 
 export function updatePlayer(dt) {
   const { player, keys, W, H } = world;
@@ -7,10 +8,10 @@ export function updatePlayer(dt) {
   let dy = 0;
 
   // Smer premikanja glede na pritisnjene tipke.
-  if (keys.w) dy -= 1;
-  if (keys.s) dy += 1;
-  if (keys.a) dx -= 1;
-  if (keys.d) dx += 1;
+if (keys.w || keys.arrowup) dy -= 1;
+if (keys.s || keys.arrowdown) dy += 1;
+if (keys.a || keys.arrowleft) dx -= 1;
+if (keys.d || keys.arrowright) dx += 1;
 
   // Normalizacija zagotovi enako hitrost tudi po diagonali.
   if (dx !== 0 || dy !== 0) {
@@ -19,9 +20,11 @@ export function updatePlayer(dt) {
     dy /= len;
   }
 
-  // Premik glede na hitrost in pretečeni čas v sekundah.
-  player.x += dx * player.speed * dt;
-  player.y += dy * player.speed * dt;
+ // Ob držanju Shifta uporabimo večjo hitrost.
+const speed = player.speed * (keys.shift ? SPRINT_MULTIPLIER : 1);
+
+player.x += dx * speed * dt;
+player.y += dy * speed * dt;
 
   // Celoten igralec mora ostati znotraj platna.
   player.x = Math.max(0, Math.min(W - player.w, player.x));

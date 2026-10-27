@@ -22,5 +22,10 @@ export const world = {
     a: false,
     s: false,
     d: false,
+    shift: false,
+    arrowup: false,
+    arrowdown: false,
+    arrowleft: false,
+    arrowright: false,
   },
 };
