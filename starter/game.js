@@ -65,7 +65,7 @@
     if (keys.d) dx += 1;
 
     // Diagonalno premikanje: normaliziraj, da ni hitrejše
-    if (dx !== 0 || dy !== 0) {
+   if (dx !== 0 || dy !== 0) {
       const len = Math.hypot(dx, dy);
       dx /= len;
       dy /= len;
