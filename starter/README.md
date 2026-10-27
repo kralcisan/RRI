@@ -29,7 +29,7 @@ Igro zaganjamo prek strežnika, ker uporablja JavaScript module.
 | Shift + smer | Sprint |
 
 Osnovna hitrost je 320 px/s.
-Sprint ima množilnik 1,6 in hitrost 512 px/s.
+Sprint ima množilnik 2,0 in hitrost 640 px/s.
 Diagonalni premik je normaliziran, igralec pa ostane znotraj platna.
 
 ## Novosti v 2. tednu
@@ -49,6 +49,10 @@ Diagonalni premik je normaliziran, igralec pa ostane znotraj platna.
 | js/player.js | Premikanje, sprint in omejitev na platno |
 | js/render.js | Risanje ozadja in igralca |
 | js/game.js | Glavna zanka in izračun dt |
+
+## Dokumentacija
+
+- [Game Design Document](../docs/moj-GDD.md)
 
 ## Avtor
 
