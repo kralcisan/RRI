@@ -1,48 +1,55 @@
-# Starter — teden 1
+# Top-down Zombie Survival — P16, teden 2
 
-Minimalna igriva osnova za **P16 Razvoj računalniških iger**.
-
-## Kaj že dela
-
-- Temno platno (Canvas), centrirano na strani
-- Modri pravokotnik = igralec
-- Premikanje: **W A S D**
-- Game loop z `requestAnimationFrame` in delta time
-- Igralec ne gre čez rob platna
+Osnova igre v HTML Canvas in JavaScriptu.
+Trenutno omogoča premikanje igralca po platnu in sprint.
 
 ## Zagon
 
-Iz mape `starter/`:
+V terminalu se premakni v mapo `starter`:
 
-```bash
-python3 -m http.server 8080
-```
+    cd "D:\velenje\2. letnik\RRI\RRI\starter"
 
-Odpri brskalnik: [http://localhost:8080](http://localhost:8080)
+Zaženi lokalni strežnik:
 
-(Druge možnosti: VS Code Live Server, `npx serve .` …)
+    python -m http.server 8080
 
-## Datoteke
+V brskalniku odpri http://localhost:8080.
+
+Strežnik mora med igranjem ostati zagnan.
+Igro zaganjamo prek strežnika, ker uporablja JavaScript module.
+
+## Kontrole
+
+| Tipke | Dejanje |
+|---|---|
+| W ali puščica gor | Premik navzgor |
+| S ali puščica dol | Premik navzdol |
+| A ali puščica levo | Premik levo |
+| D ali puščica desno | Premik desno |
+| Shift + smer | Sprint |
+
+Osnovna hitrost je 320 px/s.
+Sprint ima množilnik 1,6 in hitrost 512 px/s.
+Diagonalni premik je normaliziran, igralec pa ostane znotraj platna.
+
+## Novosti v 2. tednu
+
+- Koda je razdeljena v šest JavaScript modulov.
+- Hitrost in množilnik sprinta sta določena v konfiguraciji.
+- Dodano je upravljanje s puščicami.
+- Dodan je sprint ob držanju tipke Shift.
+
+## Struktura kode
 
 | Datoteka | Namen |
-|----------|--------|
-| `index.html` | stran + canvas |
-| `style.css` | centiranje, temno ozadje |
-| `game.js` | logika igre |
-| `assets/` | prazno v tednu 1; sprite/zvok v **projektni fazi** (glej `../projekt/`) |
+|---|---|
+| js/config.js | Hitrost igralca in množilnik sprinta |
+| js/world.js | Skupni podatki: platno, igralec in tipke |
+| js/input.js | Beleženje pritiskov in spustov tipk |
+| js/player.js | Premikanje, sprint in omejitev na platno |
+| js/render.js | Risanje ozadja in igralca |
+| js/game.js | Glavna zanka in izračun dt |
 
-Tedni 2–8 nadgrajujejo **tvojo kopijo** te mape, ne predmetni `starter/` na GitHubu. Pregled: [`../TEDENSKI-NACRT.md`](../TEDENSKI-NACRT.md), vaje: [`../lab02/`](../lab02/) … [`../lab08/`](../lab08/).
+## Avtor
 
-## Naloga tedna 1
-
-1. Zaženi igro in preveri WASD.
-2. Preberi komentarje v `game.js` (slovenščina).
-3. Izpolni osnutek GDD: `../docs/GDD-predloga.md` (Zombie Survival ali Dungeon Escape).
-4. (Opcijsko) spremeni barvo ali hitrost igralca — in v enem stavku razloži, *kaj* si spremenil.
-
-## Priprava na teden 2
-
-- Kje v kodi bi dodal sovražnika (`x, y, w, h`)?
-- Uredi si Git: prvi commit “teden 1: starter teče”.
-
-Več: `../TEDENSKI-NACRT.md`, `../DIDAKTIKA-AI.md`.
+Nik Kralj
