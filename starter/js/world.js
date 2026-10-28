@@ -8,6 +8,11 @@ export const world = {
   W: canvas.width,
   H: canvas.height,
 
+  // Trenutno stanje igre.
+
+  state: "PLAYING",
+ 
+
   player: {
     x: canvas.width / 2 - 16,
     y: canvas.height / 2 - 16,
